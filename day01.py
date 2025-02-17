@@ -12,7 +12,7 @@ def factorial(number) -> int:
     for i in range(1, number+1):
         result = result * i
     return result
-def nCr(n, r) -> int:
+def ncr(n, r) -> int:
     '''
     조합 함수
     :param n:
@@ -22,12 +22,12 @@ def nCr(n, r) -> int:
     numerator = factorial(n)
     denominator = factorial(n-r) * factorial(r)
     return int(numerator / denominator)
-def dec_oct_recursion(n):
+def dec_oct_recursion(n) -> str:
     if n == 0:
         return ""
     else:
         return dec_oct_recursion(n // 8) + str(n%8)
-def dec_oct_repetition(n):
+def dec_oct_repetition(n) -> str:
     if n == 0:
         return ""
     else:
@@ -42,7 +42,7 @@ def dec_oct_repetition(n):
             result = result + str(numList[i])
 
         return result
-def totalAdd(n):
+def total_add(n) -> int:
     result = 0
     if n == 0:
         return 0
@@ -87,8 +87,8 @@ def calculation_poly(x_value, f_x, t_x) -> int:
 
     return return_value
 
-fibo_memo = [0,1]
-def fibonacci_recursion(n)->int:
+fibo_memo = [0,1] #dp : 동적 메모리 관련 알고리즘
+def fibonacci_recursion(n) -> int:
     if n == 0:
         return 0
     elif n == 1:
@@ -118,5 +118,7 @@ if __name__ == "__main__":
         # print(calculation_poly(int(input("x 값 : ")), fx,tx))
     }
 
-    print(fibonacci_recursion(7))
-#========================================================================================================================
+    array = [9,-11,'8',7]
+    print(id(array[0]),id(array[1]),id(array[2]),id(array[3]))
+    print(type(array))
+    print(type(array[0]),type(array[1]),type(array[2]),type(array[3]))
