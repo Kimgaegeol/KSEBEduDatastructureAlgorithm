@@ -1,3 +1,5 @@
+import random
+
 def is_even(n)->bool:
     """
     짝수 판정 함수
@@ -45,12 +47,75 @@ def dec_oct_repetition(n):
 
         return result
 
+def totalAdd(n):
+    result = 0
+    if n == 0:
+        return 0
+    for i in range(1,n+1):
+        result += i
+    return result
+
+def guess_number():
+    answer = random.randint(1, 100)
+    chance = 7
+
+    while chance != 0:
+        guess = int(input("Input guess number : "))
+        if guess == answer:
+            print(f'You win. Answer is {answer}')
+            break
+        elif guess > answer:
+            chance = chance - 1
+            print(f'{guess} is bigger. Chance left : {chance}')
+        else:
+            chance = chance - 1
+            print(f'{guess} is lower. Chance left : {chance}')
+    else:
+        print(f'You lost. Answer is {answer}')
+
+def print_poly(f_x,t_x) -> str:
+    poly_expression = "f(x) = "
+
+    for i in range(len(fx)):
+        coefficient = f_x[i]
+        term = t_x[i]
+
+        if coefficient >= 0:
+            poly_expression = poly_expression + "+"
+        poly_expression = poly_expression + f'{coefficient}x^{term} '
+
+    return poly_expression
+
+
+def calculation_poly(x_value, f_x) -> int:
+    return_value = 0
+    term = len(f_x) - 1
+
+    for i in range(len(fx)):
+        coefficient = f_x[i]
+        return_value += coefficient * pow(x_value, term)
+        term = term - 1
+
+    return return_value
+
 
 
 if __name__ == "__main__":
-    # n = int(input("Input n : "))
-    # r = int(input("Input r : "))
-    # print(f"{n}C{r} = {nCr(n, r)}")
-    print(dec_oct_repetition(400))
+    {
+        # n = int(input("Input n : "))
+        # r = int(input("Input r : "))
+        # print(f"{n}C{r} = {nCr(n, r)}")
+
+        # print(dec_oct_repetition(400))
+
+        # n = int(input("Input n : "))
+        # print(totalAdd(n)) # 시간복잡도 : n
+        # print(n*(n+1) // 2) # 시간복잡도 : 1
+    }
+
+    fx = [2, 5, -9, 11]
+    tx = [20, 7, 2, 0]
+    print(print_poly(fx,tx))
+    # print(calculation_poly(int(input("x 값 : ")), fx))
 
 #========================================================================================================================
