@@ -99,37 +99,29 @@ def fibonacci_recursion(n) -> int:
         fibo_memo.append(fibonacci_recursion(n-2) + fibonacci_recursion(n-1))
         return fibonacci_recursion(n-2) + fibonacci_recursion(n-1)
 
-if __name__ == "__main__":
-    {
-        # n = int(input("Input n : "))
-        # r = int(input("Input r : "))
-        # print(f"{n}C{r} = {nCr(n, r)}")
+# if __name__ == "__main__":
+#     {
+#         # n = int(input("Input n : "))
+#         # r = int(input("Input r : "))
+#         # print(f"{n}C{r} = {nCr(n, r)}")
+#
+#         # print(dec_oct_repetition(400))
+#
+#         # n = int(input("Input n : "))
+#         # print(totalAdd(n)) # 시간복잡도 : n
+#         # print(n*(n+1) // 2) # 시간복잡도 : 1
+#     }
+#     {
+#         # fx = [2, 5, -9, 11]
+#         # tx = [20, 7, 2, 0]
+#         # print(print_poly(fx,tx))
+#         # print(calculation_poly(int(input("x 값 : ")), fx,tx))
+#     }
+#     {
+#     # array = [9,-11,'8',7]
+#     # print(id(array[0]),id(array[1]),id(array[2]),id(array[3]))
+#     # print(type(array))
+#     # print(type(array[0]),type(array[1]),type(array[2]),type(array[3]))
+#     }
 
-        # print(dec_oct_repetition(400))
 
-        # n = int(input("Input n : "))
-        # print(totalAdd(n)) # 시간복잡도 : n
-        # print(n*(n+1) // 2) # 시간복잡도 : 1
-    }
-    {
-        # fx = [2, 5, -9, 11]
-        # tx = [20, 7, 2, 0]
-        # print(print_poly(fx,tx))
-        # print(calculation_poly(int(input("x 값 : ")), fx,tx))
-    }
-    {
-    # array = [9,-11,'8',7]
-    # print(id(array[0]),id(array[1]),id(array[2]),id(array[3]))
-    # print(type(array))
-    # print(type(array[0]),type(array[1]),type(array[2]),type(array[3]))
-    }
-
-    try:
-        file = open('README.md', 'r')
-        readme_list = file.readlines()
-        print(readme_list)
-        rls = readme_list[0].split(' ')
-        print(rls)
-        file.close()
-    except FileNotFoundError as err:
-        print(f"{file} is not exist. {err}")
