@@ -45,6 +45,15 @@ class LinkedList:
             current = current.next
         current.next = Node(data)
 
+    def search(self, target):
+        current = self.head
+        while current.next:
+            if current.data == target:
+                return True
+            else:
+                current = current.next
+        return False
+
     def __str__(self):
         node = self.head
         while node is not None:
@@ -52,10 +61,21 @@ class LinkedList:
             node = node.next
         return "end"
 
+from collections import deque
+
+d = deque()
+d.append(7)
+d.append(-11)
+d.append(8)
+
 if __name__ == '__main__':
     l = LinkedList()
     l.append(7)
     l.append(-11)
     l.append(8)
+    #
+    # print(l.__str__())
+    # for data in d:
+    #     print(data)
 
-    print(l.__str__())
+    print(l.search(-11))
