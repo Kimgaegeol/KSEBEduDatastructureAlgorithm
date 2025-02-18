@@ -36,7 +36,6 @@ def log_read(file_name):
 if __name__ == "__main__":
     while(True):
         mode = input("지금까지의 기록을 확인하시려면 'log'라고 써주세요 : ")
-
         if mode == "log":
             log_read("log.txt")
 
@@ -67,6 +66,5 @@ if __name__ == "__main__":
             log_write(answer, chance, True)
 
         mode = input("게임을 끝내시려면 'end'라고 써주세요 : ")
-
         if mode == "end":
             break
