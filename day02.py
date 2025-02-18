@@ -107,29 +107,42 @@ class Node:
 
 class Queue:
     def __init__(self):
-        self.front = None
-        self.rear = None
-        self._size = 0
+        self.s1 = []
+        self.s2 = []
+
+        # self.front = None
+        # self.rear = None
+        # self._size = 0
 
     def enqueue(self, data):
-        self._size = self._size + 1
-        node = Node(data)
-        if self.rear is None:
-            self.front = node
-            self.rear = node
-        else:
-            self.rear.next = node
-            self.rear = node
+        while len(self.s1) != 0:
+            self.s2.append(self.s1.pop())
+        self.s1.append(data)
+        while len(self.s2) != 0:
+            self.s1.append(self.s2.pop())
+
+        # self._size = self._size + 1
+        # node = Node(data)
+        # if self.rear is None:
+        #     self.front = node
+        #     self.rear = node
+        # else:
+        #     self.rear.next = node
+        #     self.rear = node
 
     def dequeue(self):
-        if self.front is None:
-            raise IndexError("dequeue from empty queue")
-        self._size = self._size - 1
-        temp = self.front
-        self.front = self.front.next
-        if self.front is None:
-            self.rear = None
-        return temp.data
+        if len(self.s1) == 0:
+            raise Exception("Empty Queue")
+        return self.s1.pop()
+
+        # if self.front is None:
+        #     raise IndexError("dequeue from empty queue")
+        # self._size = self._size - 1
+        # temp = self.front
+        # self.front = self.front.next
+        # if self.front is None:
+        #     self.rear = None
+        # return temp.data
 
     def size(self) -> int:
         return self._size
@@ -174,6 +187,8 @@ if __name__ == '__main__':
     q.enqueue(7)
     q.enqueue(8)
     q.enqueue(9)
-    print(q.size())
+    # print(q.size())
     print(q.dequeue())
-    print(q.size())
+    # print(q.size())
+    for _ in range(3):
+        print(q.dequeue())
