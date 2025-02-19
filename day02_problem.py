@@ -1,15 +1,13 @@
 def is_queue_full() :
     global queue, front, rear
-    if front == rear:
-        if queue[rear] is not None:
-            return True
+    if front == rear and queue[rear] is not None:
+        return True
     return False
 
 def is_queue_empty() :
     global queue, front, rear
-    if front == rear:
-        if queue[front] is None:
-            return True
+    if front == rear and queue[front] is None:
+        return True
     return False
 
 def en_queue(data) :
@@ -38,9 +36,11 @@ def peek() :
         print("큐가 비었습니다.")
         return None
     return queue[(front+1)%size]
+
 size = int(input("큐의 크기를 입력 : "))
 queue = [None for _ in range(size)]
 front = rear = 0
+
 if __name__ == "__main__" :
     while True:
         menu = input("삽입(E)/삭제(D)/확인(P)/종료(X) : ")
