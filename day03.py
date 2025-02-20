@@ -92,6 +92,20 @@ def in_order(node):
     print(node.data, end='->')
     in_order(node.right)
 
+def post_order(node):
+    if node is None:
+        return
+    post_order(node.left)
+    post_order(node.right)
+    print(node.data, end='->')
+
+def pre_order(node):
+    if node is None:
+        return
+    print(node.data, end='->')
+    pre_order(node.left)
+    pre_order(node.right)
+
 if __name__ == '__main__':
 	groups = [40,20,60,10,30,50,70,5,15,25,35,45,55,65,75]
 	root = None
@@ -104,4 +118,8 @@ if __name__ == '__main__':
 
 	delete_group(30,root)
 	in_order(root)
+	print()
+	pre_order(root)
+	print()
+	post_order(root)
 
