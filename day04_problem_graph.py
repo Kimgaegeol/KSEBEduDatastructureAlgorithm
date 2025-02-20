@@ -19,22 +19,25 @@ def print_graph(g) :
         print()
     print()
 
-def bfs(g, i, visited):
-    queue = deque([i])
-    visited[i] = 1
-    while queue:
-        #print(visited)
-        i = queue.popleft()
-        print(chr(ord('A') + i), end=' ')
-        for j in range(len(g)):
-            if g[i][j] == 1 and not visited[j]:
-                queue.append(j)
-                visited[j] = 1
-
-def dfs(g, current, find_vtx, visited):
-    visited.append(current)
+def bfs(g, current, find_vtx, visited):
     if current == find_vtx:
         return True
+    queue = deque([current])
+    visited.append(current)
+    while queue:
+        current = queue.popleft()
+        for vertex in range(g.SIZE):
+            if g.graph[current][vertex] != 0 and vertex not in visited:
+                if vertex == find_vtx:
+                    return True
+                queue.append(vertex)
+                visited.append(vertex)
+    return False
+
+def dfs(g, current, find_vtx, visited):
+    if current == find_vtx:
+        return True
+    visited.append(current)
     for vertex in range(g.SIZE):
         if g.graph[current][vertex] != 0 and vertex not in visited:
             if dfs(g, vertex, find_vtx, visited):
@@ -43,7 +46,7 @@ def dfs(g, current, find_vtx, visited):
 
 def find_vertex(g, find_vtx) -> bool:
     visited = []
-    return dfs(g, 0, find_vtx, visited)
+    return bfs(g, 0, find_vtx, visited)
 
 def make_edge_ary(g) -> list: # 간선 목록 만들기 [가중치, 시작도시, 도착도시]
     edge_ary = []
