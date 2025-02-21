@@ -9,6 +9,9 @@ class TreeNode:
 		self.right = None
 
 def bfs(root):
+	if root is None:
+		print("빈 노드입니다.")
+		return
 	print(root.data, end='->')
 	queue = deque([root])
 	while queue:
